@@ -1693,3 +1693,45 @@ body {
         transform: translate(-50%, 0);
     }
 }
+
+/* ===== VIDEO VSL FIX ===== */
+
+.video-shell {
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto;
+}
+
+.video-wrapper,
+#video-container {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.video-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+.video-thumb {
+  width: 100%;
+  display: block;
+  border-radius: 16px;
+}
+
+.video-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #facc15;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  color: #000;
+}
