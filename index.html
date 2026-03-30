@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-
+    
     <!-- 1. BARRA SUPERIOR FIXA -->
     <div class="top-bar">
         <span>⚡ Acesso liberado por tempo limitado, em breve saíra do ar</span>
@@ -30,19 +30,39 @@
                 ACESSO IMEDIATO A ATIVIDADES INTERATIVAS QUE TRANSFORMAM SUAS AULAS DE KARATÊ EM AMBIENTES ONDE OS ALUNOS OBEDECEM, PARTICIPAM E SE ENVOLVEM DO INÍCIO AO FIM. MESMO AQUELES QUE ANTES IGNORAVAM VOCÊ, SE DISTRAÍAM OU PENSAVAM EM DESISTIR!
             </p>
 
-            <div class="hero-video-wrapper">
-                <script src="https://fast.wistia.com/player.js" async></script>
-                <script src="https://fast.wistia.com/embed/bbb8d233dp.js" async type="module"></script>
-                <style>
-                wistia-player[media-id='bbb8d233dp']:not(:defined) {
-                  background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/bbb8d233dp/swatch');
-                  display: block;
-                  filter: blur(5px);
-                  padding-top: 177.78%;
-                }
-                </style>
-                <wistia-player media-id="bbb8d233dp" aspect="0.5625"></wistia-player>
-            </div>
+
+         <div class="hero-video-wrapper">
+
+  <div class="video-wrapper" onclick="loadVideo()" style="cursor:pointer; position:relative; max-width:350px; margin:0 auto;">
+
+    <img src="thumbnail.webp" alt="Assistir vídeo" style="width:100%; border-radius:16px;" />
+
+    <div style="
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%, -50%);
+      background:#facc15;
+      width:70px;
+      height:70px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:30px;
+      color:#000;
+    ">
+      ▶
+    </div>
+
+    <!-- 🔥 IMPORTANTE: container aqui dentro -->
+    <div id="video-container"></div>
+
+  </div>
+
+</div>
+
+
 
             <div class="hero-cta-wrapper">
                 <a href="#precos" class="cta-button-green">QUERO AGORA!</a>
@@ -125,7 +145,7 @@
                 <!-- Card 1 -->
                 <div class="bonus-card reveal-on-scroll">
                     <div class="bonus-img-wrapper">
-                        <img src="bonus1.png" alt="Bônus 1" class="bonus-img">
+                        <img src="bonus1.webp" alt="Bônus 1" class="bonus-img">
                     </div>
                     <div class="bonus-card-content">
                         <h3 class="bonus-card-title">Protocolo de Domínio de Turma: Como Fazer Qualquer Aluno Te Respeitar Sem Gritar ou Se Estressar</h3>
@@ -138,7 +158,7 @@
                 <!-- Card 2 -->
                 <div class="bonus-card reveal-on-scroll">
                     <div class="bonus-img-wrapper">
-                        <img src="bonus2.png" alt="Bônus 2" class="bonus-img">
+                        <img src="bonus2.webp" alt="Bônus 2" class="bonus-img">
                     </div>
                     <div class="bonus-card-content">
                         <h3 class="bonus-card-title">Frases de Autoridade Instantânea para Instrutores de Karatê Usarem Para Impor Respeito!</h3>
@@ -151,7 +171,7 @@
                 <!-- Card 3 -->
                 <div class="bonus-card reveal-on-scroll">
                     <div class="bonus-img-wrapper">
-                        <img src="bonus3.png" alt="Bônus 3" class="bonus-img">
+                        <img src="bonus3.webp" alt="Bônus 3" class="bonus-img">
                     </div>
                     <div class="bonus-card-content">
                         <h3 class="bonus-card-title">Kit Anti-Tédio: 30 Dinâmicas de Emergência para Recuperar Qualquer Aula em Minutos</h3>
@@ -164,7 +184,7 @@
                 <!-- Card 4 -->
                 <div class="bonus-card reveal-on-scroll">
                     <div class="bonus-img-wrapper">
-                        <img src="bonus4.png" alt="Bônus 4" class="bonus-img">
+                        <img src="bonus4.webp" alt="Bônus 4" class="bonus-img">
                     </div>
                     <div class="bonus-card-content">
                         <h3 class="bonus-card-title">Certificação de Reconhecimento Para Aulas no Karatê</h3>
@@ -511,5 +531,32 @@
     </div>
 
     <script src="script.js"></script>
+
+<script>
+function loadVideo() {
+  const container = document.getElementById('video-container');
+  const wrapper = document.querySelector('.video-wrapper');
+
+  if (container.innerHTML !== "") return;
+
+  wrapper.style.display = '';
+
+  const script1 = document.createElement("script");
+  script1.src = "https://fast.wistia.com/player.js";
+
+  const script2 = document.createElement("script");
+  script2.src = "https://fast.wistia.com/embed/bbb8d233dp.js";
+  script2.type = "module";
+
+  const player = document.createElement("wistia-player");
+  player.setAttribute("media-id", "bbb8d233dp");
+  player.setAttribute("aspect", "0.5625");
+
+  container.appendChild(script1);
+  container.appendChild(script2);
+  container.appendChild(player);
+}
+</script>
+    
 </body>
 </html>
